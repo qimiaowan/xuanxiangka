@@ -5,152 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-    body{
-      background: #fff;
-    }
-    .head{
-      position: relative;
-      width: 100%;
-      height: 60px;
-    }
-    .tabs{
-      display: flex;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-    }
-    .pg{
-      position: absolute;
-      bottom: 2px;
-      width: 33.33%;
-      height: 5px;
-      background: red;
-      left: 0;
-      transition:all .3s;
-    }
-    .clearfix::before,
-    .clearfix::after{
-      content: "";
-      display: block;
-      width: 0;
-      overflow: hidden;
-      clear: both;
-    }
-    .tab_item{
-      flex: 1;
-      text-align: center;
-      line-height: 60px;
-    }
-    .tab_item.tab_active{
-      color: red;
-    }
-    .main{
-      position: relative;
-      width: 100%;
-      height: calc(100vh - 60px);
-      overflow: hidden;
-    }
-    .cor{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 300%;
-      height: 100%;
-      transition:all .3s;
-
-    }
-    .slide{
-      float: left;
-      width: 100vw;
-      height: 100%;
-    }
-    .page_shop{
-      display: flex;
-    }
-    .shop_tabs{
-      flex: 0 0 80px;
-      background: #f3f5f7;
-    }
-    .shop_list{
-      flex: 1;
-      background: #fff;
-      /* indexScroll overflow-y: scroll; */
-
-    }
-    .shop_list::-webkit-scrollbar{
-      display: none;
-    }
-    .list_wrap{
-      background: #fff;
-      padding-bottom: 18px;
-      /* indexScroll transition: all .3s; */
-
-    }
-    .tabs_wrap li{
-      display: flex;
-      height: 56px;
-      padding: 0 10px;
-      color: #333;
-      font-size: 12px;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .tabs_wrap li.active{
-      color: #fc9153;
-      background: #fff;
-    }
-
-    .list_item{
-      width: 100%;
-      margin: 18px 0;
-    }
-    .item_wrap{
-      padding: 0 10px;
-      display: flex;
-
-    }
-    .img{
-      flex: 0 0 57px;
-      margin-right: 10px;
-    }
-    img{
-      width: 100%;
-    }
-    .content{
-      flex: 1;
-    }
-    .title{
-      height: 14px;
-      margin: 2px 0 8px 0;
-      font-size: 14px;
-    }
-    .desc{
-      line-height: 12px;
-      margin-bottom: 8px;
-    }
-    .desc,
-    .extra{
-      font-size: 10px;
-      color: #999;
-    }
-    .extra span:first-of-type {
-      margin-right: 12px;
-    }
-    .price{
-      font-size: 14px;
-      color: #f01414;
-      font-weight: 700;
-      line-height: 24px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="indexScroll.css">
 </head>
 <body>
   <div class="wrap">
@@ -202,7 +58,7 @@
   <script src="data.js"></script>
   <script src="tab.js"></script>
   <script src="create.js"></script>
-  <!-- <script src="indexScroll.js"></script> -->
-  <script src="index.js"></script>
+  <!-- <script src="index.js"></script> -->
+  <script src="indexScroll.js"></script>
 </body>
 </html>

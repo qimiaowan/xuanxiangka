@@ -77,6 +77,7 @@
 			tabsClick(tar);
 		}
 
+
 	//事件 滚动条
 		$(".shop_list").ontouchstart = function (e) {
 			e.preventDefault();

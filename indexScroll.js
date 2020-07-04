@@ -67,51 +67,22 @@ init.then(({ oTabs_wrap, oList_wrap }) => {
 			if (!tagName=="li") {
 				return
 		}
-
+		$(".shop_list").onscroll = null;
 		let firstIndex = index(shopTabs);
 		let tarIndex = shopTabs.indexOf(tar);
-
-		showActive(shopTabs, firstIndex, tarIndex)
 
 		var num = 0;
 		for (var i = 0; i < tarIndex; i++){
 			num+=(getRect(shopList[i],"height")+18)
 		}
 
+		showActive(shopTabs, firstIndex, tarIndex);
 		ScrollTop($('.shop_list'),num,200)
 	}
 
-
-
-	var timer = null;
-
-	//事件 滚动条
-	$(".shop_list").ontouchstart = function (e) {
-
-		clearInterval(timer);
-
-		var offsetY = Math.round(getRect(oList_wrap,"top"));
-
-
-	this.ontouchmove = function (e) {
-		offsetY = Math.round(getRect(oList_wrap,"top")-78);
-		let idx = moveActive(offsetY);
-
-
-		let firstIndex = index(shopTabs);
-		if (offsetY - Math.round(-(moveHeight[shopList.length - 1])) < 10) {
-			idx = shopList.length - 1;
-		}
-		showActive(shopTabs, firstIndex, idx);
-	}
-
-	$(".shop_list").ontouchend = function (e) {
-		clearInterval(timer);
-
-		var endPos = Math.round(getRect(oList_wrap, "top") - 78);
-		timer = setInterval(() => {
+	$(".shop_list").ontouchstart = function () {
+		$(".shop_list").onscroll = function () {
 			var pos = Math.round(getRect(oList_wrap, "top") - 78);
-
 			let firstIndex = index(shopTabs);
 			if (pos >= 0) {
 				pos = 0;
@@ -120,22 +91,65 @@ init.then(({ oTabs_wrap, oList_wrap }) => {
 			}
 
 			let idx = moveActive(pos);
-
-			//确实 不相等 我在进行 换class
 			if (firstIndex != idx) {
 				showActive(shopTabs, firstIndex, idx);
 			}
-
-			if (Math.round(Math.abs(pos)) == Math.round(Math.abs(endPos))) {
-				clearInterval(timer);
-				console.log('end!');
-			}
-			endPos = Math.round(getRect(oList_wrap, "top") - 78);
-		}, 100);
-
 	}
-
 }
+
+
+	//事件 滚动条
+	// var timer = null;
+// 	$(".shop_list").ontouchstart = function (e) {
+
+// 		clearInterval(timer);
+
+// 		var offsetY = Math.round(getRect(oList_wrap,"top"));
+
+
+// 	this.ontouchmove = function (e) {
+// 		offsetY = Math.round(getRect(oList_wrap,"top")-78);
+// 		let idx = moveActive(offsetY);
+
+
+// 		let firstIndex = index(shopTabs);
+// 		if (offsetY - Math.round(-(moveHeight[shopList.length - 1])) < 10) {
+// 			idx = shopList.length - 1;
+// 		}
+// 		showActive(shopTabs, firstIndex, idx);
+// 	}
+
+// 	$(".shop_list").ontouchend = function (e) {
+// 		clearInterval(timer);
+
+// 		var endPos = Math.round(getRect(oList_wrap, "top") - 78);
+// 		// timer = setInterval(() => {
+// 		// 	var pos = Math.round(getRect(oList_wrap, "top") - 78);
+
+// 		// 	let firstIndex = index(shopTabs);
+// 		// 	if (pos >= 0) {
+// 		// 		pos = 0;
+// 		// 	} else if (pos - Math.round(-(moveHeight[shopList.length - 1])) < 10) {
+// 		// 		pos = -(moveHeight[shopList.length - 1]);
+// 		// 	}
+
+// 		// 	let idx = moveActive(pos);
+
+// 		// 	//确实 不相等 我在进行 换class
+// 		// 	if (firstIndex != idx) {
+// 		// 		showActive(shopTabs, firstIndex, idx);
+// 		// 	}
+
+// 		// 	if (Math.round(Math.abs(pos)) == Math.round(Math.abs(endPos))) {
+// 		// 		clearInterval(timer);
+// 		// 		console.log('end!');
+// 		// 	}
+// 		// 	endPos = Math.round(getRect(oList_wrap, "top") - 78);
+// 		// }, 100);
+
+// 	}
+// }
+
 
 })
 

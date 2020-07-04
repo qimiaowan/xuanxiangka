@@ -1,0 +1,9 @@
+.shop_list{
+  overflow-y: scroll;
+}
+.shop_list::-webkit-scrollbar{
+  display: none;
+}
+.list_wrap{
+  transition: all .3s;
+}
